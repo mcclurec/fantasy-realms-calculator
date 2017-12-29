@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.hand-header {
+  display: flex;
+}
+
+.hand-header__score-row {
+  display: flex;
+  margin-left: auto;
+  align-items: flex-end;
+}
+
+.hand-header__score-row {
+  margin-bottom: 2rem;
+  border-radius: 2px;
+  padding: 0 2em 1em 1em;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,.17), 1px 1px 1px 1px rgba(0,0,0,.1);
+}
+
+.hand-header__score-row > * {
+  margin-left: 1rem;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  min-height: 227px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f9f9f9;
+  border-left: 20px solid #ccc;
+  margin: .5em;
+  padding: 1.5em;
+  position: relative;
+  flex-basis: calc(20% - 1em);
+  transition: all .3s;
+}
+
+.card--in-hand {
+  flex-basis: calc(14.28% - 1em);
+  padding: 1.5em 1em;
+}
+
+.card:not(.card--in-hand):hover {
+  background: #f3f3f3;
+  cursor: pointer;
+}
+
+.card--army.card--selected:not(.card--in-hand)     { background: rgba(64, 64, 64, .2); }
+.card--artifact.card--selected:not(.card--in-hand) { background: rgba(236, 131, 24, .2); }
+.card--beast.card--selected:not(.card--in-hand)    { background: rgba(71, 208, 71, .2); }
+.card--flame.card--selected:not(.card--in-hand)    { background: rgba(195, 21, 21, .2); }
+.card--flood.card--selected:not(.card--in-hand)    { background: rgba(67, 67, 208, .2); }
+.card--land.card--selected:not(.card--in-hand)     { background: rgba(102, 51, 0, .2); }
+.card--leader.card--selected:not(.card--in-hand)   { background: rgba(111, 35, 187, .2); }
+.card--weapon.card--selected:not(.card--in-hand)   { background: rgba(160, 160, 160, .2); }
+.card--weather.card--selected:not(.card--in-hand)  { background: rgba(153, 204, 255, .2); }
+.card--wild.card--selected:not(.card--in-hand)     { background: rgba(208, 208, 208, .2); }
+.card--wizard.card--selected:not(.card--in-hand)   { background: rgba(255, 102, 178, .2); }
+
+.card--blanked:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  background: #ccc repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+  opacity: .5;
+  pointer-events: none;
+}
+
+.card--army     { border-left-color: #404040; }
+.card--artifact { border-left-color: #ec8318; }
+.card--beast    { border-left-color: #47d047; }
+.card--flame    { border-left-color: #c31515; }
+.card--flood    { border-left-color: #4343d0; }
+.card--land     { border-left-color: #663300; }
+.card--leader   { border-left-color: #6f23bb; }
+.card--weapon   { border-left-color: #a0a0a0; }
+.card--weather  { border-left-color: #99ccff; }
+.card--wild     { border-left-color: #d0d0d0; }
+.card--wizard   { border-left-color: #ff66b2; }
+
+.card__score-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.card__score-table td {
+  padding: .2em .5em;
+}
+
+.card__score-table td:first-child {
+  color: #888;
+}
+
+.card__score-table td:last-child {
+  text-align: right;
+}
+
+.card__score-table__total-score td {
+  border-top: 1px solid #555;
+}
+
+.card--cleared .card__score-table__penalty-score:after {
+  content: 'Cleared';
+  color: #ef3f3f;
+  font-size: .8em;
+  font-style: italic;
+  vertical-align: super;
+}
+
+.card__id {
+  position: absolute;
+  bottom: .5rem;
+  right: .5rem;
+  font-size: .666em;
+  color: #aaa;
+}
+
+.card__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__close:hover {
+  opacity: .5;
+}
+
+/* Utility Classes */
+.capitalize {
+  text-transform: capitalize;
+}
