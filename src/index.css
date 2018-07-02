@@ -4,17 +4,24 @@
 
 body {
   margin: 0;
-  padding: 2rem;
+  padding: 1rem;
   font-family: sans-serif;
+}
+
+@media only screen and (min-width: 900px)  {
+  body {
+    padding: 2rem;
+  }
 }
 
 .hand-header {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .hand-header__score-row {
   display: flex;
-  margin-left: auto;
   align-items: flex-end;
 }
 
@@ -45,14 +52,37 @@ body {
   margin: .5em;
   padding: 1.5em;
   position: relative;
-  flex-basis: calc(20% - 1em);
+  flex-basis: calc(100% - 1em);
   transition: all .3s;
 }
 
 .card--in-hand {
-  flex-basis: calc(14.28% - 1em);
   padding: 1.5em 1em;
 }
+
+@media only screen and (min-width: 600px)  {
+  .card,
+  .card--in-hand {
+    flex-basis: calc(50% - 1em);
+  }
+}
+
+@media only screen and (min-width: 900px)  {
+  .card,
+  .card--in-hand {
+    flex-basis: calc(33.333% - 1em);
+  }
+}
+
+@media only screen and (min-width: 1024px)  {
+  .card {
+    flex-basis: calc(20% - 1em);
+  }
+  .card--in-hand {
+    flex-basis: calc(14.28% - 1em);
+  }
+}
+
 
 .card:not(.card--in-hand):hover {
   background: #f3f3f3;
